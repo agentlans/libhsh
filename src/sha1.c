@@ -80,7 +80,6 @@ void hsh_sha1_update(hsh_sha1_ctx *ctx, const uint8_t *data, size_t len) {
     ctx->message_byte_length += len;
 
     size_t total_len = ctx->unprocessed_len + len;
-    uint8_t block[HSH_SHA1_BLOCK_SIZE];
     size_t offset = 0;
 
     /* Process unprocessed + new data */
