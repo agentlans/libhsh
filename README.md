@@ -1,0 +1,2 @@
+# libhsh
+Cryptographic hash functions
