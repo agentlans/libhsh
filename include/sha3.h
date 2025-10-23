@@ -6,11 +6,12 @@
 
 #define HSH_SHA3_STATE_SIZE 25
 #define HSH_SHA3_NR 24
+#define HSH_SHA3_MAX_RATE 200  // Maximum rate bytes (for SHA3-224..512)
 
 // ==== Structs ====
 typedef struct {
     uint64_t state[HSH_SHA3_STATE_SIZE];
-    uint8_t *buf;
+    uint8_t buf[HSH_SHA3_MAX_RATE];
     size_t buf_len;
     size_t rate_bytes;
     int finalized;
@@ -29,3 +30,4 @@ void hsh_sha3_update(hsh_sha3_ctx *ctx, const uint8_t *data, size_t len);
 void hsh_sha3_finalize(hsh_sha3_ctx *ctx, uint8_t *out);
 
 #endif
+
